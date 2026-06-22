@@ -16,6 +16,7 @@
   .metric.blue .value { color: #185fa5; }
   .metric.amber .value { color: #854f0b; }
   .metric.purple .value { color: #534ab7; }
+  .metric.red .value { color: #b91c1c; }
   .card { background: #fff; border-radius: 12px; border: 0.5px solid rgba(0,0,0,0.08); padding: 1.25rem; margin-top: 1rem; }
   .card h3 { font-size: 13px; font-weight: 500; color: #555; margin-bottom: 1rem; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -25,6 +26,7 @@
   td:not(:first-child) { text-align: right; }
   tr:last-child td { border-bottom: none; }
   .total-row td { font-weight: 500; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px; border-bottom: none; }
+  .subtotal-row td { font-weight: 500; color: #444; background: #f9f9f7; padding: 5px 8px 5px 6px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 500; }
   .badge.green { background: #e1f5ee; color: #0f6e56; }
   .badge.blue { background: #e6f1fb; color: #185fa5; }
@@ -58,10 +60,7 @@
   .hl-blue .hl-label { color: #185fa5; }
   .hl-blue .hl-value { color: #042c53; }
   .hl-blue .hl-sub { color: #378add; }
-  .hl-amber { background: #faeeda; border-color: #fac775; }
-  .hl-amber .hl-label { color: #854f0b; }
-  .hl-amber .hl-value { color: #412402; }
-  .hl-amber .hl-sub { color: #ba7517; }
+  .cat-header td { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #888; padding-top: 16px; padding-bottom: 3px; border-bottom: none; background: none; }
   .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin: 1.5rem 0 0.5rem; }
   @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } .metrics { grid-template-columns: repeat(2, 1fr); } }
 </style>
@@ -72,42 +71,142 @@
     <p>Furniture City Labrador &nbsp;·&nbsp; 20–21 June 2026 &nbsp;·&nbsp; Nova Furnishing</p>
   </div>
 
-  <!-- Top KPIs -->
-  <div class="section-label">Key Results</div>
+  <!-- Top KPIs — Labrador -->
+  <div class="section-label">Key Results — Labrador Outlets (Event Venue)</div>
+  <div class="metrics">
+    <div class="metric green">
+      <div class="label">Labrador Sales</div>
+      <div class="value">$166K</div>
+      <div class="sub">SGD 165,599.90</div>
+    </div>
+    <div class="metric">
+      <div class="label">Total Event Cost</div>
+      <div class="value">$40.2K</div>
+      <div class="sub">SGD 40,153.21</div>
+    </div>
+    <div class="metric amber">
+      <div class="label">Event ROI (Labrador)</div>
+      <div class="value">4.1×</div>
+      <div class="sub">$166K ÷ $40.2K total cost</div>
+    </div>
+    <div class="metric green">
+      <div class="label">Ad ROAS (Labrador)</div>
+      <div class="value">5.2×</div>
+      <div class="sub">$166K ÷ $31.7K ad spend</div>
+    </div>
+  </div>
+
+  <!-- Company-wide -->
+  <div class="section-label">Company-Wide Sales (All Outlets)</div>
   <div class="metrics">
     <div class="metric green">
       <div class="label">Total Sales (All Outlets)</div>
       <div class="value">$452K</div>
       <div class="sub">SGD 452,439.62</div>
     </div>
-    <div class="metric green">
-      <div class="label">Labrador Sales</div>
-      <div class="value">$166K</div>
-      <div class="sub">SGD 165,599.90</div>
-    </div>
     <div class="metric purple">
-      <div class="label">Ad Spend</div>
+      <div class="label">Ad Spend (FB Boost)</div>
       <div class="value">$31.7K</div>
       <div class="sub">SGD 31,681.40</div>
     </div>
     <div class="metric amber">
-      <div class="label">ROAS (Total)</div>
+      <div class="label">Ad ROAS (All Outlets)</div>
       <div class="value">14.3×</div>
-      <div class="sub">$452K ÷ $31.7K</div>
+      <div class="sub">$452K ÷ $31.7K ad spend</div>
+    </div>
+    <div class="metric amber">
+      <div class="label">Total ROI (All Outlets)</div>
+      <div class="value">11.3×</div>
+      <div class="sub">$452K ÷ $40.2K total cost</div>
     </div>
   </div>
 
   <!-- Sales by day -->
   <div class="row2" style="margin-top:10px;">
     <div class="hl-box hl-green">
-      <div class="hl-label">Day 1 — Saturday 20 Jun (All Outlets)</div>
-      <div class="hl-value">$230,448</div>
-      <div class="hl-sub">Labrador: $81,716 &nbsp;·&nbsp; 66 RSVP attendees</div>
+      <div class="hl-label">Day 1 — Saturday 20 Jun (Labrador)</div>
+      <div class="hl-value">$81,716.09</div>
+      <div class="hl-sub">RZ-LAB $40,928 &nbsp;·&nbsp; X-LAB $40,788 &nbsp;·&nbsp; 134 footfall</div>
     </div>
     <div class="hl-box hl-blue">
-      <div class="hl-label">Day 2 — Sunday 21 Jun (All Outlets)</div>
-      <div class="hl-value">$221,992</div>
-      <div class="hl-sub">Labrador: $83,884 &nbsp;·&nbsp; 34 RSVP attendees</div>
+      <div class="hl-label">Day 2 — Sunday 21 Jun (Labrador)</div>
+      <div class="hl-value">$83,883.81</div>
+      <div class="hl-sub">RZ-LAB $42,861 &nbsp;·&nbsp; X-LAB $41,023 &nbsp;·&nbsp; 52 footfall</div>
+    </div>
+  </div>
+
+  <!-- Expenses breakdown -->
+  <div class="section-label">Event Expenses Breakdown</div>
+  <div class="card">
+    <table>
+      <tr><th>Item</th><th>Amount (SGD)</th></tr>
+
+      <tr class="cat-header"><td colspan="2">Video Production</td></tr>
+      <tr><td>Toro</td><td>$500.00</td></tr>
+      <tr><td>Hidayah &amp; Sha Sha (KOL)</td><td>$2,000.00</td></tr>
+      <tr><td>Stella (KOL)</td><td>$1,376.00</td></tr>
+      <tr class="subtotal-row"><td>&nbsp;&nbsp;Video subtotal</td><td>$3,876.00</td></tr>
+
+      <tr class="cat-header"><td colspan="2">Free Gifts (Lucky Draw / Giveaway)</td></tr>
+      <tr><td>Dyson Fan</td><td>$378.10</td></tr>
+      <tr><td>Airpods 4</td><td>$142.00</td></tr>
+      <tr><td>Dreame Hair Dryer</td><td>$165.03</td></tr>
+      <tr><td>Fitness Watch ×3</td><td>$170.38</td></tr>
+      <tr><td>Phils Iron ×2</td><td>$49.53</td></tr>
+      <tr><td>Prism+ Vacuum</td><td>$88.05</td></tr>
+      <tr><td>Air Fryer</td><td>$80.64</td></tr>
+      <tr class="subtotal-row"><td>&nbsp;&nbsp;Free gifts subtotal</td><td>$1,073.73</td></tr>
+
+      <tr class="cat-header"><td colspan="2">Goodie Bags &amp; Door Gifts</td></tr>
+      <tr><td>Tote Bag</td><td>$2,295.31</td></tr>
+      <tr><td>Towel (est.)</td><td>$157.45</td></tr>
+      <tr><td>Small Fan (est.)</td><td>$452.21</td></tr>
+      <tr><td>Measurement Tape (est.)</td><td>$385.09</td></tr>
+      <tr class="subtotal-row"><td>&nbsp;&nbsp;Goodie bags subtotal</td><td>$3,290.06</td></tr>
+
+      <tr class="cat-header"><td colspan="2">Digital Advertising</td></tr>
+      <tr><td>Facebook / Meta Boost</td><td>$31,681.40</td></tr>
+      <tr class="subtotal-row"><td>&nbsp;&nbsp;Ads subtotal</td><td>$31,681.40</td></tr>
+
+      <tr class="cat-header"><td colspan="2">Marketing Materials</td></tr>
+      <tr><td>Foam Board A1 ×6</td><td>$64.52</td></tr>
+      <tr><td>Flyer, 250pcs A5</td><td>$90.00</td></tr>
+      <tr><td>Wheel of Fortune (Print)</td><td>$61.95</td></tr>
+      <tr><td>Transportation (Delivery) ×2</td><td>$14.95</td></tr>
+      <tr><td>Cleaning Service</td><td>$0.00</td></tr>
+      <tr class="subtotal-row"><td>&nbsp;&nbsp;Materials subtotal</td><td>$231.42</td></tr>
+
+      <tr class="total-row"><td>TOTAL COST</td><td>$40,153.21</td></tr>
+    </table>
+  </div>
+
+  <!-- Cost composition bars -->
+  <div class="card" style="margin-top:10px;">
+    <h3>Cost composition</h3>
+    <div class="bar-row">
+      <span class="bar-label">FB Ads</span>
+      <div class="bar-track"><div class="bar-fill blue" style="width:79%"></div></div>
+      <span class="bar-num">$31,681 &nbsp;<span style="color:#aaa;font-size:11px;">78.9%</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">KOL / Video</span>
+      <div class="bar-track"><div class="bar-fill amber" style="width:10%"></div></div>
+      <span class="bar-num">$3,876 &nbsp;<span style="color:#aaa;font-size:11px;">9.7%</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Goodie Bags</span>
+      <div class="bar-track"><div class="bar-fill" style="width:8%"></div></div>
+      <span class="bar-num">$3,290 &nbsp;<span style="color:#aaa;font-size:11px;">8.2%</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Free Gifts</span>
+      <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+      <span class="bar-num">$1,074 &nbsp;<span style="color:#aaa;font-size:11px;">2.7%</span></span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">Materials</span>
+      <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+      <span class="bar-num">$231 &nbsp;<span style="color:#aaa;font-size:11px;">0.6%</span></span>
     </div>
   </div>
 
@@ -117,23 +216,23 @@
     <h3>Labrador outlets (event venue)</h3>
     <table>
       <tr><th>Outlet</th><th>Saturday</th><th>Sunday</th><th>Total</th></tr>
-      <tr><td>RZ-Labrador</td><td>$40,928</td><td>$42,861</td><td>$83,789</td></tr>
-      <tr><td>X-Labrador</td><td>$40,788</td><td>$41,023</td><td>$81,811</td></tr>
-      <tr class="total-row"><td>Labrador Total</td><td>$81,716</td><td>$83,884</td><td>$165,600</td></tr>
+      <tr><td>RZ-Labrador</td><td>$40,928.20</td><td>$42,860.80</td><td>$83,789.00</td></tr>
+      <tr><td>X'clusive-Labrador</td><td>$40,787.89</td><td>$41,023.01</td><td>$81,810.90</td></tr>
+      <tr class="total-row"><td>Labrador Total</td><td>$81,716.09</td><td>$83,883.81</td><td>$165,599.90</td></tr>
     </table>
     <hr class="divider">
     <h3 style="margin-bottom:1rem;">Other outlets (company-wide)</h3>
     <table>
       <tr><th>Outlet</th><th>Saturday</th><th>Sunday</th></tr>
-      <tr><td>NV-TH</td><td>$20,296</td><td>$11,109</td></tr>
-      <tr><td>NV-SD</td><td>$13,797</td><td>$21,138</td></tr>
-      <tr><td>NV-AMK</td><td>$20,781</td><td>$23,112</td></tr>
-      <tr><td>NV-CHG</td><td>$18,380</td><td>$7,218</td></tr>
-      <tr><td>MH-TPY</td><td>$64,879</td><td>$61,177</td></tr>
-      <tr><td>RZ-SA</td><td>$8,534</td><td>$8,887</td></tr>
-      <tr><td>X-SIMS</td><td>$2,064</td><td>$4,667</td></tr>
-      <tr><td>X-Tampines</td><td>$—</td><td>$799</td></tr>
-      <tr class="total-row"><td>Grand Total (All)</td><td>$230,448</td><td>$221,992</td></tr>
+      <tr><td>NV-TH</td><td>$20,295.97</td><td>$11,109.45</td></tr>
+      <tr><td>NV-SD</td><td>$13,796.97</td><td>$21,137.51</td></tr>
+      <tr><td>NV-AMK</td><td>$20,781.36</td><td>$23,112.28</td></tr>
+      <tr><td>NV-CHG</td><td>$18,380.47</td><td>$7,217.94</td></tr>
+      <tr><td>MH-TPY</td><td>$64,878.59</td><td>$61,177.47</td></tr>
+      <tr><td>RZ-SA</td><td>$8,534.46</td><td>$8,887.15</td></tr>
+      <tr><td>X-SIMS</td><td>$2,064.22</td><td>$4,666.88</td></tr>
+      <tr><td>X-Tampines</td><td>$—</td><td>$799.00</td></tr>
+      <tr class="total-row"><td>Grand Total (All Outlets)</td><td>$230,448.13</td><td>$221,991.49</td></tr>
     </table>
   </div>
 
@@ -152,7 +251,7 @@
       <span class="bar-num">121 &nbsp;<span style="color:#aaa;font-size:11px;">47%</span></span>
     </div>
     <div class="bar-row">
-      <span class="bar-label">Attended</span>
+      <span class="bar-label">Attended (RSVP)</span>
       <div class="bar-track"><div class="bar-fill" style="width:44%"></div></div>
       <span class="bar-num">112 &nbsp;<span style="color:#aaa;font-size:11px;">44%</span></span>
     </div>
@@ -169,26 +268,24 @@
     </div>
   </div>
 
-  <!-- Attendance + Brand breakdown -->
+  <!-- Attendance -->
   <div class="row2" style="margin-top:10px;">
     <div class="card">
-      <h3>Attendance by Day (RSVP leads)</h3>
+      <h3>Attendance by Day (Labrador)</h3>
       <table>
-        <tr><th>Day</th><th>Attended</th><th>Doorgift</th></tr>
-        <tr><td>Sat 20 Jun</td><td>66</td><td>—</td></tr>
-        <tr><td>Sun 21 Jun</td><td>34</td><td>—</td></tr>
-        <tr><td style="color:#aaa;">Untagged</td><td style="color:#aaa;">12</td><td style="color:#aaa;">—</td></tr>
-        <tr class="total-row"><td>Total</td><td>112</td><td>74 redeemed</td></tr>
+        <tr><th>Day</th><th>RSVP</th><th>Walk-in</th><th>Total</th></tr>
+        <tr><td>Sat 20 Jun</td><td>66</td><td>68</td><td>134</td></tr>
+        <tr><td>Sun 21 Jun</td><td>30</td><td>22</td><td>52</td></tr>
+        <tr class="total-row"><td>Total</td><td>96</td><td>90</td><td>186</td></tr>
       </table>
     </div>
     <div class="card">
-      <h3>Brand Interest (attended)</h3>
+      <h3>Sales Conversion Rate</h3>
       <table>
-        <tr><th>Brand</th><th>Count</th><th>%</th></tr>
-        <tr><td>Rozel (RZ)</td><td>40</td><td>36%</td></tr>
-        <tr><td>X'clusive (XH)</td><td>29</td><td>26%</td></tr>
-        <tr><td>Both brands</td><td>12</td><td>11%</td></tr>
-        <tr><td style="color:#aaa;">Untagged</td><td style="color:#aaa;">31</td><td style="color:#aaa;">28%</td></tr>
+        <tr><th>Day</th><th>Labrador Sales</th><th>Conv.</th></tr>
+        <tr><td>Sat 20 Jun</td><td>$81,716</td><td>45.45%</td></tr>
+        <tr><td>Sun 21 Jun</td><td>$83,884</td><td>32.35%</td></tr>
+        <tr class="total-row"><td>Combined</td><td>$165,600</td><td>38.81%</td></tr>
       </table>
     </div>
   </div>
