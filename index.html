@@ -1,124 +1,165 @@
 <title>FFF 3.0 Event Report — Foshan Furniture Frenzy</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--color-background-tertiary, #f5f5f2); color: var(--color-text-primary, #1a1a18); padding: 2rem 1rem; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f2; color: #1a1a18; padding: 2rem 1rem; }
   .page { max-width: 860px; margin: 0 auto; }
   .header { margin-bottom: 2rem; }
-  .header h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+  .header h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; color: #111; }
   .header p { font-size: 14px; color: #888; }
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #888; text-transform: uppercase; margin-bottom: 10px; margin-top: 2rem; }
   .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
   .metric { background: #fff; border-radius: 10px; padding: 1rem 1.25rem; border: 0.5px solid rgba(0,0,0,0.08); }
   .metric .label { font-size: 12px; color: #888; margin-bottom: 6px; }
-  .metric .value { font-size: 26px; font-weight: 500; line-height: 1; }
+  .metric .value { font-size: 26px; font-weight: 500; line-height: 1; color: #111; }
   .metric .sub { font-size: 12px; color: #888; margin-top: 4px; }
   .metric.green .value { color: #0f6e56; }
   .metric.blue .value { color: #185fa5; }
   .metric.amber .value { color: #854f0b; }
+  .metric.purple .value { color: #534ab7; }
   .card { background: #fff; border-radius: 12px; border: 0.5px solid rgba(0,0,0,0.08); padding: 1.25rem; margin-top: 1rem; }
   .card h3 { font-size: 13px; font-weight: 500; color: #555; margin-bottom: 1rem; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th { text-align: left; color: #888; font-weight: 400; padding: 4px 8px 8px 0; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
   th:not(:first-child) { text-align: right; }
-  td { padding: 7px 8px 7px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); }
+  td { padding: 7px 8px 7px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); color: #222; }
   td:not(:first-child) { text-align: right; }
   tr:last-child td { border-bottom: none; }
-  .total-row td { font-weight: 500; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px; }
+  .total-row td { font-weight: 500; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px; border-bottom: none; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 500; }
   .badge.green { background: #e1f5ee; color: #0f6e56; }
   .badge.blue { background: #e6f1fb; color: #185fa5; }
   .badge.amber { background: #faeeda; color: #854f0b; }
   .badge.gray { background: #f1efe8; color: #5f5e5a; }
+  .badge.purple { background: #eeedfe; color: #534ab7; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
-  .bar-row .bar-label { width: 80px; color: #555; flex-shrink: 0; }
+  .bar-row .bar-label { width: 110px; color: #555; flex-shrink: 0; font-size: 12px; }
   .bar-track { flex: 1; background: #f1efe8; border-radius: 4px; height: 8px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 4px; background: #1d9e75; }
   .bar-fill.blue { background: #378add; }
   .bar-fill.amber { background: #ba7517; }
-  .bar-row .bar-num { width: 40px; text-align: right; color: #888; }
-  .timeline { display: flex; flex-direction: column; gap: 6px; }
+  .bar-row .bar-num { min-width: 50px; text-align: right; color: #555; font-size: 12px; }
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
   .tl-row { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; }
   .tl-dot { width: 8px; height: 8px; border-radius: 50%; background: #1d9e75; margin-top: 4px; flex-shrink: 0; }
   .tl-dot.blue { background: #378add; }
-  .tl-date { width: 70px; color: #888; flex-shrink: 0; }
-  .tl-text { color: #333; }
+  .tl-date { width: 75px; color: #888; flex-shrink: 0; }
+  .tl-text { color: #333; line-height: 1.5; }
   .tl-text strong { color: #111; font-weight: 500; }
-  .highlight-box { background: #e1f5ee; border-radius: 10px; padding: 1rem 1.25rem; border: 0.5px solid #9fe1cb; margin-top: 1rem; }
-  .highlight-box .hl-label { font-size: 12px; color: #0f6e56; margin-bottom: 4px; }
-  .highlight-box .hl-value { font-size: 28px; font-weight: 500; color: #085041; }
-  .highlight-box .hl-sub { font-size: 12px; color: #1d9e75; margin-top: 2px; }
-  @media (max-width: 540px) { .row2 { grid-template-columns: 1fr; } .metrics { grid-template-columns: repeat(2, 1fr); } }
+  .hl-box { border-radius: 10px; padding: 1rem 1.25rem; border: 0.5px solid; margin-top: 1rem; }
+  .hl-box .hl-label { font-size: 12px; margin-bottom: 4px; }
+  .hl-box .hl-value { font-size: 28px; font-weight: 500; line-height: 1.1; }
+  .hl-box .hl-sub { font-size: 12px; margin-top: 4px; }
+  .hl-green { background: #e1f5ee; border-color: #9fe1cb; }
+  .hl-green .hl-label { color: #0f6e56; }
+  .hl-green .hl-value { color: #085041; }
+  .hl-green .hl-sub { color: #1d9e75; }
+  .hl-blue { background: #e6f1fb; border-color: #b5d4f4; }
+  .hl-blue .hl-label { color: #185fa5; }
+  .hl-blue .hl-value { color: #042c53; }
+  .hl-blue .hl-sub { color: #378add; }
+  .hl-amber { background: #faeeda; border-color: #fac775; }
+  .hl-amber .hl-label { color: #854f0b; }
+  .hl-amber .hl-value { color: #412402; }
+  .hl-amber .hl-sub { color: #ba7517; }
+  .divider { border: none; border-top: 0.5px solid rgba(0,0,0,0.08); margin: 1.5rem 0 0.5rem; }
+  @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } .metrics { grid-template-columns: repeat(2, 1fr); } }
 </style>
 
 <div class="page">
   <div class="header">
     <h1>Foshan Furniture Frenzy 3.0 — Event Summary Report</h1>
-    <p>Furniture City Labrador &nbsp;·&nbsp; 20–21 June 2026 &nbsp;·&nbsp; Generated 22 Jun 2026</p>
+    <p>Furniture City Labrador &nbsp;·&nbsp; 20–21 June 2026 &nbsp;·&nbsp; Nova Furnishing</p>
   </div>
 
   <!-- Top KPIs -->
   <div class="section-label">Key Results</div>
   <div class="metrics">
     <div class="metric green">
-      <div class="label">Total Sales</div>
-      <div class="value">$128K</div>
-      <div class="sub">SGD 128,025.99</div>
+      <div class="label">Total Sales (All Outlets)</div>
+      <div class="value">$452K</div>
+      <div class="sub">SGD 452,439.62</div>
     </div>
-    <div class="metric">
-      <div class="label">Attended</div>
-      <div class="value">112</div>
-      <div class="sub">of 255 unique leads</div>
+    <div class="metric green">
+      <div class="label">Labrador Sales</div>
+      <div class="value">$166K</div>
+      <div class="sub">SGD 165,599.90</div>
     </div>
-    <div class="metric blue">
-      <div class="label">Attendance Rate</div>
-      <div class="value">44%</div>
-      <div class="sub">112 / 255 contacts</div>
+    <div class="metric purple">
+      <div class="label">Ad Spend</div>
+      <div class="value">$31.7K</div>
+      <div class="sub">SGD 31,681.40</div>
     </div>
     <div class="metric amber">
-      <div class="label">Doorgift Redeemed</div>
-      <div class="value">74</div>
-      <div class="sub">66% of attendees</div>
+      <div class="label">ROAS (Total)</div>
+      <div class="value">14.3×</div>
+      <div class="sub">$452K ÷ $31.7K</div>
     </div>
   </div>
 
   <!-- Sales by day -->
   <div class="row2" style="margin-top:10px;">
-    <div class="highlight-box">
-      <div class="hl-label">Day 1 Sales — Saturday 20 Jun</div>
-      <div class="hl-value">$58,923</div>
-      <div class="hl-sub">66 attendees &nbsp;·&nbsp; SGD 58,922.62</div>
+    <div class="hl-box hl-green">
+      <div class="hl-label">Day 1 — Saturday 20 Jun (All Outlets)</div>
+      <div class="hl-value">$230,448</div>
+      <div class="hl-sub">Labrador: $81,716 &nbsp;·&nbsp; 66 RSVP attendees</div>
     </div>
-    <div class="highlight-box" style="background:#e6f1fb;border-color:#b5d4f4;">
-      <div class="hl-label" style="color:#185fa5;">Day 2 Sales — Sunday 21 Jun</div>
-      <div class="hl-value" style="color:#042c53;">$62,968</div>
-      <div class="hl-sub" style="color:#378add;">34 attendees &nbsp;·&nbsp; SGD 62,967.59</div>
+    <div class="hl-box hl-blue">
+      <div class="hl-label">Day 2 — Sunday 21 Jun (All Outlets)</div>
+      <div class="hl-value">$221,992</div>
+      <div class="hl-sub">Labrador: $83,884 &nbsp;·&nbsp; 34 RSVP attendees</div>
     </div>
   </div>
 
-  <!-- RSVP funnel -->
-  <div class="section-label" style="margin-top:2rem;">RSVP Funnel</div>
+  <!-- Sales breakdown by outlet -->
+  <div class="section-label">Sales by Outlet (Event Weekend)</div>
   <div class="card">
-    <h3>Lead Pipeline (255 unique contacts)</h3>
+    <h3>Labrador outlets (event venue)</h3>
+    <table>
+      <tr><th>Outlet</th><th>Saturday</th><th>Sunday</th><th>Total</th></tr>
+      <tr><td>RZ-Labrador</td><td>$40,928</td><td>$42,861</td><td>$83,789</td></tr>
+      <tr><td>X-Labrador</td><td>$40,788</td><td>$41,023</td><td>$81,811</td></tr>
+      <tr class="total-row"><td>Labrador Total</td><td>$81,716</td><td>$83,884</td><td>$165,600</td></tr>
+    </table>
+    <hr class="divider">
+    <h3 style="margin-bottom:1rem;">Other outlets (company-wide)</h3>
+    <table>
+      <tr><th>Outlet</th><th>Saturday</th><th>Sunday</th></tr>
+      <tr><td>NV-TH</td><td>$20,296</td><td>$11,109</td></tr>
+      <tr><td>NV-SD</td><td>$13,797</td><td>$21,138</td></tr>
+      <tr><td>NV-AMK</td><td>$20,781</td><td>$23,112</td></tr>
+      <tr><td>NV-CHG</td><td>$18,380</td><td>$7,218</td></tr>
+      <tr><td>MH-TPY</td><td>$64,879</td><td>$61,177</td></tr>
+      <tr><td>RZ-SA</td><td>$8,534</td><td>$8,887</td></tr>
+      <tr><td>X-SIMS</td><td>$2,064</td><td>$4,667</td></tr>
+      <tr><td>X-Tampines</td><td>$—</td><td>$799</td></tr>
+      <tr class="total-row"><td>Grand Total (All)</td><td>$230,448</td><td>$221,992</td></tr>
+    </table>
+  </div>
+
+  <!-- RSVP funnel -->
+  <div class="section-label">RSVP Funnel</div>
+  <div class="card">
+    <h3>Lead pipeline — 255 unique contacts</h3>
     <div class="bar-row">
       <span class="bar-label">Total leads</span>
       <div class="bar-track"><div class="bar-fill blue" style="width:100%"></div></div>
-      <span class="bar-num">255</span>
+      <span class="bar-num">255 &nbsp;<span style="color:#aaa;font-size:11px;">100%</span></span>
     </div>
     <div class="bar-row">
       <span class="bar-label">Confirmed</span>
       <div class="bar-track"><div class="bar-fill" style="width:47%"></div></div>
-      <span class="bar-num">121</span>
+      <span class="bar-num">121 &nbsp;<span style="color:#aaa;font-size:11px;">47%</span></span>
     </div>
     <div class="bar-row">
       <span class="bar-label">Attended</span>
       <div class="bar-track"><div class="bar-fill" style="width:44%"></div></div>
-      <span class="bar-num">112</span>
+      <span class="bar-num">112 &nbsp;<span style="color:#aaa;font-size:11px;">44%</span></span>
     </div>
     <div class="bar-row">
-      <span class="bar-label">Doorgift</span>
+      <span class="bar-label">Doorgift redeemed</span>
       <div class="bar-track"><div class="bar-fill amber" style="width:29%"></div></div>
-      <span class="bar-num">74</span>
+      <span class="bar-num">74 &nbsp;<span style="color:#aaa;font-size:11px;">29%</span></span>
     </div>
     <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:8px;">
       <span class="badge green">Confirmed 121</span>
@@ -131,13 +172,13 @@
   <!-- Attendance + Brand breakdown -->
   <div class="row2" style="margin-top:10px;">
     <div class="card">
-      <h3>Attendance by Day</h3>
+      <h3>Attendance by Day (RSVP leads)</h3>
       <table>
-        <tr><th>Day</th><th>Attended</th><th>Sales</th></tr>
-        <tr><td>Sat 20 Jun</td><td>66</td><td>$58,923</td></tr>
-        <tr><td>Sun 21 Jun</td><td>34</td><td>$62,968</td></tr>
+        <tr><th>Day</th><th>Attended</th><th>Doorgift</th></tr>
+        <tr><td>Sat 20 Jun</td><td>66</td><td>—</td></tr>
+        <tr><td>Sun 21 Jun</td><td>34</td><td>—</td></tr>
         <tr><td style="color:#aaa;">Untagged</td><td style="color:#aaa;">12</td><td style="color:#aaa;">—</td></tr>
-        <tr class="total-row"><td>Total</td><td>112</td><td>$128,026</td></tr>
+        <tr class="total-row"><td>Total</td><td>112</td><td>74 redeemed</td></tr>
       </table>
     </div>
     <div class="card">
@@ -153,7 +194,7 @@
   </div>
 
   <!-- Time slot breakdown -->
-  <div class="section-label">Attendance by Time Slot (RSVP)</div>
+  <div class="section-label">RSVP by Time Slot</div>
   <div class="row2">
     <div class="card">
       <h3>Saturday 20 June</h3>
@@ -208,27 +249,28 @@
       <div class="tl-row">
         <div class="tl-dot blue"></div>
         <div class="tl-date">Pre-event</div>
-        <div class="tl-text"><strong>140 gift codes</strong> assigned and synced to Respond.io with "Foshan 3.0" tag</div>
+        <div class="tl-text"><strong>140 unique gift codes</strong> generated, assigned and synced to Respond.io with "Foshan 3.0" tag</div>
       </div>
       <div class="tl-row">
         <div class="tl-dot"></div>
         <div class="tl-date">Sat 20 Jun</div>
-        <div class="tl-text"><strong>195 event-day reminders</strong> blasted via <em>actual_reminder</em> template (all Confirmed + Pending)</div>
+        <div class="tl-text"><strong>195 event-day reminders</strong> blasted via <em>actual_reminder</em> template to all Confirmed + Pending contacts</div>
       </div>
       <div class="tl-row">
         <div class="tl-dot"></div>
         <div class="tl-date">Sun 22 Jun</div>
-        <div class="tl-text"><strong>112 thank-you messages</strong> blasted via <em>thank_you</em> template to all attendees</div>
+        <div class="tl-text"><strong>112 thank-you messages</strong> blasted via <em>thank_you</em> template to every attendee — 0 failures</div>
       </div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;">
       <span class="badge blue">195 reminders sent</span>
       <span class="badge green">112 thank-you sent</span>
       <span class="badge green">0 failures</span>
+      <span class="badge purple">307 total messages</span>
     </div>
   </div>
 
-  <div style="margin-top:2rem;font-size:12px;color:#aaa;text-align:center;padding-bottom:1rem;">
+  <div style="margin-top:2.5rem;font-size:12px;color:#aaa;text-align:center;padding-bottom:1.5rem;border-top:0.5px solid rgba(0,0,0,0.06);padding-top:1rem;">
     Foshan Furniture Frenzy 3.0 &nbsp;·&nbsp; Nova Furnishing &nbsp;·&nbsp; 22 Jun 2026
   </div>
 </div>
